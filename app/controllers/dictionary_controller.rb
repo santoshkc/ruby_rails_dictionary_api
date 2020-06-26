@@ -7,7 +7,6 @@ class DictionaryController < ApplicationController
   def self.trie_builder
     if @builder.nil?
       path = Rails.root.join('app', 'assets', 'dictionary', '2of12inf.txt')
-      print "Path->",path, "\n"
       @builder = DictionaryHelper::TrieBuilderFromFile.new(path)
       @builder.build()
     end
@@ -19,6 +18,6 @@ class DictionaryController < ApplicationController
     word_typed = params[:typedText]
 
     found = word_typed.blank? ? false : builder.includes?(word_typed)
-    render json: {'WordFound' => found, 'wordTyped' => word_typed }
+    render json: { WordFound: found, WordTyped: word_typed }
   end
 end
