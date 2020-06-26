@@ -8,13 +8,11 @@ module DictionaryHelper
 
         def build
           IO.foreach(@file_path) {|block| 
-              token = block.strip().downcase()
-              @trie.insert(token)
+              @trie.insert(block)
           }
         end
 
         def includes?(token)
-            token = token.strip().downcase()
             return @trie.search(token)
         end
     end
@@ -36,8 +34,11 @@ module DictionaryHelper
         end
     
         def insert(word_to_insert)
+          return false if word_to_insert.blank?
           pointer = @root
-    
+
+          word_to_insert = word_to_insert.strip().downcase()
+
           word_to_insert.chars.each do |char|
             child = pointer.children[char]
             if child.nil?
@@ -47,9 +48,13 @@ module DictionaryHelper
             pointer = pointer.children[char]
           end
           pointer.is_terminal = true
+          return true
         end
     
         def search(word_to_search)
+          return false if word_to_search.blank?
+          
+          word_to_search = word_to_search.strip().downcase()
           pointer = @root
           word_to_search.chars.each do |char|
             child = pointer.children[char]
