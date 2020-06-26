@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/word' do 
         post '/' => 'dictionary#search'
-        #option '/' => 'dictionary#search'
     end
   end
 end
