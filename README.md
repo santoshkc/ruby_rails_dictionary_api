@@ -1,4 +1,4 @@
-# README
+# Steps followed for development of API
 * skipped generation of specs, assets etc. in application.rb
 * Installed gem rack-cors and added to gemfile
 * Added cors to application.rb
@@ -10,26 +10,3 @@
 * dictionary controller builds trie only on first request(reuses same trie for subsequent requests)
   to search action and returns json containing whether word was found or not. 
 * server run at port 4000
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
