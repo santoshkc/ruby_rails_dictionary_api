@@ -1,7 +1,7 @@
 # Dictionary API
 Exposes an api to check wheather given word in available in dictionary or not.Built using Ruby on Rails.
 
-## Details realted to development.
+## Steps followed for developement of API
 * Used command `rails new <project_name_here> --api --skip-action-mailer --skip-active-storage --skip-active-record` to create new rails project.
 * Skipped generation of specs, assets etc. in application.rb
 * Installed gem rack-cors and added to gemfile
